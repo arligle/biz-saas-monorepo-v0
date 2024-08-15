@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/master/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/master/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/master",
+  "projects": {
+    "master": {
+      "type": "application",
+      "root": "apps/master",
+      "entryFile": "main",
+      "sourceRoot": "apps/master/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/master/tsconfig.app.json"
+      }
+    },
+    "read": {
+      "type": "application",
+      "root": "apps/reader",
+      "entryFile": "main",
+      "sourceRoot": "apps/reader/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/reader/tsconfig.app.json"
+      }
+    },
+    "node-postgres": {
+      "type": "library",
+      "root": "libs/node-postgres",
+      "entryFile": "index",
+      "sourceRoot": "libs/node-postgres/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/node-postgres/tsconfig.lib.json"
+      }
+    },
+    "auth-db-schema": {
+      "type": "library",
+      "root": "libs/biz-saas-db-schema",
+      "entryFile": "index",
+      "sourceRoot": "libs/biz-saas-db-schema/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/biz-saas-db-schema/tsconfig.lib.json"
+      }
+    }
+  }
+}
